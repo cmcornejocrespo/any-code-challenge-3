@@ -37,17 +37,17 @@ public class CheckoutServiceTest {
 
         final String outcome = sut.getPrice(order);
 
-        assertThat(outcome).isEqualTo("£0.40");
+        assertThat(outcome).isEqualTo("£0.50");
     }
 
     @Test
     public void shouldCalculateExpectedAmountForListOfApplesAndOranges() {
 
-        final List<String> order = createShoppingOrder("orange", "orange","apple");
+        final List<String> order = createShoppingOrder("apple","apple", "orange","apple");
 
         final String outcome = sut.getPrice(order);
 
-        assertThat(outcome).isEqualTo("£1.00");
+        assertThat(outcome).isEqualTo("£2.05");
     }
 
     // test helpers

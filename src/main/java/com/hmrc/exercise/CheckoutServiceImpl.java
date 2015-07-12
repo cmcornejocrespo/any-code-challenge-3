@@ -27,7 +27,7 @@ public class CheckoutServiceImpl implements CheckoutService {
                 total += 0.60;
             } else {
 
-                total += 0.20;
+                total += 0.25;
             }
 
         }
