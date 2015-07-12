@@ -23,12 +23,33 @@ public class CheckoutServiceTest {
     @Test
     public void shouldCalculateExpectedAmountForListOfOnlyApples() {
 
-        final List<String> order = new ArrayList<String>();
-        order.add("apple");
-        order.add("apple");
+        final List<String> order = createShoppingOrder("apple", "apple");
 
         final String outcome = sut.getPrice(order);
 
-        assertThat(outcome).isEqualTo("£1.30");
+        assertThat(outcome).isEqualTo("£1.20");
+    }
+
+    @Test
+    public void shouldCalculateExpectedAmountForListOfOnlyOranges() {
+
+        final List<String> order = createShoppingOrder("orange", "orange");
+
+        final String outcome = sut.getPrice(order);
+
+        assertThat(outcome).isEqualTo("£0.40");
+    }
+
+    // test helpers
+    private List<String> createShoppingOrder(String... items) {
+
+        final List<String> order = new ArrayList<String>();
+
+        for (String item : items) {
+
+            order.add(item);
+        }
+
+        return order;
     }
 }

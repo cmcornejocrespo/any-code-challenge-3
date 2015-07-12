@@ -22,7 +22,14 @@ public class CheckoutServiceImpl implements CheckoutService {
 
         for (String product : products) {
 
-            total += 0.65;
+            if (product.equals("apple")) {
+
+                total += 0.60;
+            } else {
+
+                total += 0.20;
+            }
+
         }
 
         Double currencyAmount = new Double(total);
