@@ -19,20 +19,42 @@ public class CheckoutServiceImpl implements CheckoutService {
     public String getPrice(List<String> products) {
 
         double total = 0.0;
+        int apples = 0, oranges = 0;
 
         for (String product : products) {
 
             if (product.equals("apple")) {
 
-                total += 0.60;
+                apples++;
             } else {
 
-                total += 0.25;
+                oranges++;
             }
-
         }
 
-        Double currencyAmount = new Double(total);
+        final String totalPrice = getPriceAfterOffers(apples, oranges);
+
+        return totalPrice;
+    }
+
+    private String getPriceAfterOffers(int apples, int oranges) {
+
+        final double applePrice = 0.60;
+        final double orangePrice = 0.25;
+
+        final boolean applyAppleOffer = apples % 2 == 0;
+        double totalApples = (apples / 2) * applePrice;
+
+        if (!applyAppleOffer) {
+
+            totalApples += applePrice;
+        }
+
+        double totalOranges = oranges * orangePrice;
+
+        totalOranges -= (oranges / 3) * orangePrice;
+
+        Double currencyAmount = new Double(totalApples + totalOranges);
 
         return currencyFormatter.format(currencyAmount);
     }
