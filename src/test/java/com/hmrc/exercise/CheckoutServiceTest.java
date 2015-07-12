@@ -40,6 +40,16 @@ public class CheckoutServiceTest {
         assertThat(outcome).isEqualTo("£0.40");
     }
 
+    @Test
+    public void shouldCalculateExpectedAmountForListOfApplesAndOranges() {
+
+        final List<String> order = createShoppingOrder("orange", "orange","apple");
+
+        final String outcome = sut.getPrice(order);
+
+        assertThat(outcome).isEqualTo("£1.00");
+    }
+
     // test helpers
     private List<String> createShoppingOrder(String... items) {
 
