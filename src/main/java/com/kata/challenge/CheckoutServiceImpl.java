@@ -1,4 +1,4 @@
-package com.hmrc.exercise;
+package com.kata.challenge;
 
 import java.text.NumberFormat;
 import java.util.List;

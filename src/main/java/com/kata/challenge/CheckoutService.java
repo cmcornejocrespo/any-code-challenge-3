@@ -1,4 +1,4 @@
-package com.hmrc.exercise;
+package com.kata.challenge;
 
 import java.util.List;
 

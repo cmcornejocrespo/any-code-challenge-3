@@ -1,4 +1,4 @@
-package com.hmrc.exercise;
+package com.kata.challenge;
 
 import org.junit.Before;
 import org.junit.Test;
